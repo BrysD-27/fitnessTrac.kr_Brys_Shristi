@@ -1,0 +1,38 @@
+body {   
+    margin: 0px;    
+    font-family: Roboto, sans-serif;      
+    background-color: white;   
+    color: black;
+}
+header {    
+    display: grid;    
+    grid-template-columns: 60% 1fr;    
+    align-items: center;    
+    padding: 1rem;    
+    padding-left: 20rem;
+    padding-top: 0;    
+    padding-bottom: 0;
+    padding-left: ;   
+    background: #4169e1;    
+     color: white;   
+     box-shadow: 0 0 2px .4px black; 
+}
+
+.header-tag {
+    color: #4169e1;
+    padding-left: 22rem;
+    display: grid;    
+    grid-template-columns: 60% 1fr;    
+    align-items: center; 
+    -webkit-text-stroke-width: .1px;
+    -webkit-text-stroke-color: black;
+}
+
+.h21 {
+    padding-left: 1rem;
+}
+
+#homePage {
+    display: flex;
+    justify-content: center;
+}
