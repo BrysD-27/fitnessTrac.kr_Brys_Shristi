@@ -1,0 +1,25 @@
+body{
+
+    background-color: #44364B;
+    margin: 0;
+    
+    
+}
+.login-form{
+    display: grid; 
+    grid-column: 2;
+    grid-row: 2;
+    background-color: hsl(32, 56%, 81%);
+    width: 30vw;
+    height: fit-content;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    border-radius: 4em 8em;
+    background-image: linear-gradient(to right, #EC745C, #F5AD8C);
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    
+    
+}
