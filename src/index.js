@@ -1,29 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    Header,
-    Home
-} from './components';
+    BrowserRouter as Router
+} from 'react-router-dom';
 
-import './style.css';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch
-  } from 'react-router-dom';
+import App from './components/App';
 
-const App = () => {
-    return ( 
-        <div className='app'>
-            <Header />
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-            </Switch>
-
-        </div>
-    )
-}
-
-ReactDOM.render(<Router><App /></Router>, document.getElementById('app'));
+ReactDOM.render(
+    <Router><App /></Router>,
+    document.getElementById('app')
+);
