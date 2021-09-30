@@ -30,7 +30,7 @@ const Activities = () => {
 
 return (
     <div>
-       <h1>Activities</h1>
+       <h1> All Activities</h1>
        <div className= 'activities- container'>{activityElements}</div>
        <MakeActivities/>
     </div>
