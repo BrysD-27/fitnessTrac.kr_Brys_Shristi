@@ -20,8 +20,8 @@ const Header = () => {
         <div className="header-tag">
             <h1>Fitness Trac.kr</h1>
             <div>
-                <a>Log In</a>
-                <a className="h21">Register</a>
+                <a className="h21" href="/users/login">Log In</a>
+                <a className="h21" href="/users/register">Register</a>
             </div>
         </div>
         <header>
