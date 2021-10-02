@@ -1,18 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import TokenUtilities from '../Api/token';
 
-const Logout = ()=>{
-    function handleLogout (event) {
-        event.preventDefault();
-        TokenUtilities.removeToken();
-        
-      }
+
+const Logout= ()=> {
     return(
         <div>
 
-        <button className = 'logout' onClick={handleLogout}> Logout </button>
+        <h1> You are logged out!!</h1>
+            <h2><Link to= {"/users/login"}> Please click to Login </Link></h2>
         </div>
     )
 }
+
 export default Logout;
