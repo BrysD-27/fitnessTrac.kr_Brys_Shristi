@@ -48,6 +48,8 @@ header {
 
 .h21 {
     padding-left: 1rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 #homePage {
