@@ -3,10 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import API from '../Api/api';
 import MakeActivities from './MakeActivities';
 
-const Activities = ({isLoggedIn,makeActivities}) => {
+const Activities = ({isLoggedIn}) => {
 
     const [activities, setActivities] = useState([]);
-
+    const [render, setRender] = useState ('');
     useEffect( async function() {
         try {
            
@@ -17,7 +17,7 @@ const Activities = ({isLoggedIn,makeActivities}) => {
             } catch (error) {
             alert(error);
         } 
-    }, []);
+    }, [render]);
 
     const activityElements = activities. map((activity, i)=>
         <div  className='activity-container'key= {`activity-id-${i}`}>
@@ -30,7 +30,7 @@ const Activities = ({isLoggedIn,makeActivities}) => {
         <div>
             { isLoggedIn? 
             <>
-                <MakeActivities/>
+                <MakeActivities setRender={setRender}/>
                 <h2 className='title'> All Activities</h2>
                 <div className= 'activities-container'>{activityElements}</div>
             </>
