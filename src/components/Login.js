@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import API from '../Api/api';
 import TokenUtilities from '../Api/token';
 
 const Login = ({setToken}) => {
-
+    let history = useHistory();
     const [user, setUser] = useState({username: '', password: ''});
 
     async function storeToken() {
@@ -16,6 +15,7 @@ const Login = ({setToken}) => {
             TokenUtilities.setToken(data.token);
             console.log(data);
             setToken(data.token);
+            history.push('/activities');
             }else{
                 alert(data.error);
             }
@@ -37,11 +37,10 @@ const Login = ({setToken}) => {
     }
 
 return (
-    <div>
-        {/* <Link to="/">Fitness Tracker</Link> */}
-        <form onSubmit={handleSubmit} >
-            <div className = 'loginBox'>
-            <div className = 'login-form'>
+    <div className= 'conatiner'>
+        <h2>Login Here</h2>
+
+        <form  className ='form' onSubmit={handleSubmit} >
                 <input type="text" 
                         required
                         name="username"
@@ -54,9 +53,7 @@ return (
                         value={user.password}
                         onChange={handleInput}
                         placeholder="password"></input>
-                <button>Submit</button>
-            </div>
-            </div>
+                <button>Log In</button>
         </form>
     </div>
 )

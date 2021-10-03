@@ -17,37 +17,37 @@ const Header = ({isLoggedIn, setToken}) => {
     });
 
 
-        function handleLogout (event) {
-            event.preventDefault();
-            TokenUtilities.removeToken(); 
-            setToken(null);
-        }
-console.log(isLoggedIn);
+    function handleLogout (event) {
+        event.preventDefault();
+        TokenUtilities.removeToken(); 
+        setToken(null);
+    }
+
       return (
         <>
-        
-        <div className="header-tag">
-            <h1>Fitness Trac.kr</h1>
-           { isLoggedIn ?
-<>
-<StyledButton  onClick={handleLogout} ><Link to= {"/Logout"}>  LOGOUT </Link></StyledButton>
-</>
-:
-            <div>
-                <a className="h21" href="/users/login">Log In</a>
-                <a className="h21" href="/users/register">Register</a>
-            </div> 
-}
-        </div>
-        <header>
-            <div id="nav-bar">
-                <StyledButton component={Link} to="/">Home</StyledButton>
-                <StyledButton>Routines</StyledButton>
-                <StyledButton>My routines</StyledButton> 
-                <StyledButton component={Link} to ="/activities">Activities</StyledButton>
-                {/* <StyledButton  onClick={handleLogout} >Logout</StyledButton> */}
-            </div> 
-        </header>
+            <div className="header-tag">
+                <h1>Fitness Trac.kr</h1>
+                { isLoggedIn ?
+                    <div>
+                        <button  onClick={handleLogout} ><Link to= {"/Logout"}>  LOGOUT </Link></button>
+                    </div>
+                    :
+                    <div>
+                        <Link to= {"/users/login"}> Log In </Link>
+                        <Link to= {"/users/register"}> Register </Link>
+                        {/* <a className="h21" href="/users/login">Log In</a>
+                        <a className="h21" href="/">Register</a> */}
+                    </div> 
+                }
+            </div>
+            <header>
+                <div id="nav-bar">
+                    <StyledButton component={Link} to="/">Home</StyledButton>
+                    <StyledButton>Routines</StyledButton>
+                    <StyledButton>My routines</StyledButton> 
+                    <StyledButton component={Link} to ="/activities">Activities</StyledButton>
+                </div> 
+            </header>
         </>
     )
 }

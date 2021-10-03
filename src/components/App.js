@@ -11,10 +11,9 @@ import  Header from './Header';
 import Home from './Home';
 import Activities from './Activities';
 import TokenUtilities from '../Api/token';
+
 const App = () => {
     const [token, setToken] = useState(TokenUtilities.getToken());
-    const tokenlocal =TokenUtilities.getToken();
-    console.log(tokenlocal);
     const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
     useEffect(function() {
@@ -31,10 +30,9 @@ const App = () => {
                     
                     <Route path="/users/register"><Register /></Route>
                     <Route path="/users/login"><Login setToken ={setToken}/></Route>
-                    <Route path="/activities"><Activities /></Route>
+                    <Route path="/activities"><Activities isLoggedIn = {isLoggedIn} /></Route>
                     {/* <Route path="/routines"><Routines /></Route> */}
                     <Route path="/Logout"><Logout/></Route>
-                    
                     <Route exact path="/"><Home /></Route>
                 </Switch>
             </main>

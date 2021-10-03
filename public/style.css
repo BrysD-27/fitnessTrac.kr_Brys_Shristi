@@ -1,27 +1,4 @@
-/* .loginBox {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,1fr);
-    
-}
-.login-form{
-    display: grid; 
-    grid-column: 2;
-    grid-row: 2;
-    background-color: hsl(32, 56%, 81%);
-    width: 30vw;
-    height: fit-content;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center;
-    justify-content:center;
-    align-items: center;
-    border-radius: 4em 8em;
-    background-image: linear-gradient(to right, #EC745C, #F5AD8C);
-    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
-    
-    
-} */
+
 body {   
     margin: 0px;    
     font-family: Roboto, sans-serif;      
@@ -60,4 +37,64 @@ header {
 #homePage {
     display: flex;
     justify-content: center;
+}
+.title{
+    text-align: center;
+}
+
+.activities-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: beige;
+    margin: 2vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    padding: 5vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+    border-radius: 2%;
+    background-image: linear-gradient(to right, #FFDD91
+    , #F8F8FF);
+    
+} 
+.activity-container{
+    display: grid;
+    background-color: #EC745C;
+    margin: 2vh;
+    padding: 2vh;
+    margin-top: 3vh ;
+    border-radius: 10%;
+    max-height: fit-content;
+    font-family: 'Oswald', sans-serif
+}
+
+.conatiner{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center; 
+    row-gap:30 px;
+
+    
+}
+
+
+.form{
+    display: grid; 
+    grid-column: 2;
+    grid-row: 2;
+    background-color: hsl(32, 56%, 81%);
+    width: 30vw;
+    height: fit-content;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    border-radius: 4em 4em;
+    background-image: linear-gradient(to right, #EC745C, #F5AD8C);
+    row-gap: 10px;
+    
 }

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import API from '../Api/api';
-import TokenUtilities from '../Api/token';
+
 
 const Register = () => {
 
-    //let history = useHistory();
+    let history = useHistory();
 
     const [registerUser, setRegisterUser] = useState({username: '', password: ''});
 
@@ -14,14 +13,19 @@ const Register = () => {
         try {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
-           console.log(data);
+            console.log(data);
+            if(data.token){
+                alert(data.message);
+                history.push('/users/login');
+            }else{
+                alert(data.error);
+            }
         } catch (error) {
             alert(error);
-        // } finally {
-        //     history.push('/');
-        // }
+        } 
+        
     }
-}
+
 
 
 function handleSubmit(event) {
@@ -37,22 +41,25 @@ function handleInput(event) {
 }
 
 return (
-    <div>
-        <Link to="/">Fitness Tracker</Link>
-        <form onSubmit={handleSubmit}>
+    <div className='conatiner'>
+       <h2>Register here</h2>
+        <form className='form'onSubmit={handleSubmit}>
+        
             <input type="text" 
                    required
                    name="username"
                    value={registerUser.username}
                    onChange={handleInput}
                    placeholder="username" />
+            
+
             <input type="password"
                    required
                    name="password"
                    value={registerUser.password}
                    onChange={handleInput}
                    placeholder="password"></input>
-            <button>Submit</button>
+            <button>Register</button>
         </form>
     </div>
 )

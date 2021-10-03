@@ -14,6 +14,9 @@ const MakeActivities = () => {
             const data = await API.makeRequest('/activities', 'POST', makeActivities);
         
             console.log(data);
+            if (data.name ==="NotFound"){
+                alert(data.error);
+            }
             
         } catch (error) {
             alert(error);
@@ -33,10 +36,10 @@ const MakeActivities = () => {
     }
 
 return (
-    <div>
-        {/* <Link to="/">Fitness Tracker</Link> */}
-        <h3>Make New Activities</h3>
-        <form onSubmit={handleSubmit} >
+    <div className='conatiner'>
+        <h2>Make New Activities</h2>
+        
+        <form className='form'onSubmit={handleSubmit} >
             <input type="text" 
                    required
                    name="name"
