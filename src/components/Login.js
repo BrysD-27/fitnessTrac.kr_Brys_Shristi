@@ -26,6 +26,7 @@ const Login = ({setToken}) => {
 
     function handleSubmit(event) {
         event.preventDefault();
+        localStorage.setItem('username', user.username);
         storeToken();
     }
 

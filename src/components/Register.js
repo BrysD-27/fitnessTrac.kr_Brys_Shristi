@@ -30,6 +30,7 @@ const Register = () => {
 
 function handleSubmit(event) {
     event.preventDefault();
+    localStorage.setItem('username', registerUser.username);
     registerGetToken();
 }
 
