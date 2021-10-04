@@ -14,7 +14,8 @@ const Register = () => {
         try {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
-           console.log(data);
+            TokenUtilities.setToken(data.token);
+            console.log(data);
         } catch (error) {
             alert(error);
         // } finally {
@@ -26,6 +27,7 @@ const Register = () => {
 
 function handleSubmit(event) {
     event.preventDefault();
+    localStorage.setItem('username', registerUser.username);
     registerGetToken();
 }
 
