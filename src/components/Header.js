@@ -29,14 +29,14 @@ const Header = ({isLoggedIn, setToken}) => {
                 <h1>Fitness Trac.kr</h1>
                 { isLoggedIn ?
                     <div>
+                        
                         <button  onClick={handleLogout} ><Link to= {"/Logout"}>  LOGOUT </Link></button>
                     </div>
                     :
                     <div>
                         <Link to= {"/users/login"}> Log In </Link>
                         <Link to= {"/users/register"}> Register </Link>
-                        {/* <a className="h21" href="/users/login">Log In</a>
-                        <a className="h21" href="/">Register</a> */}
+                
                     </div> 
                 }
             </div>
@@ -45,7 +45,7 @@ const Header = ({isLoggedIn, setToken}) => {
             <div id="nav-bar">
                 <StyledButton component={Link} to="/">Home</StyledButton>
                 <StyledButton component={Link} to ="/routines">Routines</StyledButton>
-                <StyledButton component={Link} to="/my_routines">My routines</StyledButton> 
+                { isLoggedIn? <StyledButton component={Link} to="/my_routines">My routines</StyledButton> :<></>}
                 <StyledButton component={Link} to='/activities'>Activities</StyledButton>
             </div> 
         </header>
