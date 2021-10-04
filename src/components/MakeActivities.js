@@ -4,7 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import API from '../Api/api';
 import TokenUtilities from '../Api/token';
 
-const MakeActivities = () => {
+
+const MakeActivities = ({setRender}) => {
 
     const [makeActivities, setMakeActivities] = useState({name: '', description: ''});
 
@@ -12,8 +13,11 @@ const MakeActivities = () => {
         try {
            
             const data = await API.makeRequest('/activities', 'POST', makeActivities);
-        
+            setRender(data.name);
             console.log(data);
+            if (data.name ==="NotFound"){
+                alert(data.error);
+            }
             
         } catch (error) {
             alert(error);
@@ -33,10 +37,10 @@ const MakeActivities = () => {
     }
 
 return (
-    <div>
-        {/* <Link to="/">Fitness Tracker</Link> */}
-        <h3>Make New Activities</h3>
-        <form onSubmit={handleSubmit} >
+    <div className='conatiner'>
+        <h2>Make New Activities</h2>
+
+        <form className='form'onSubmit={handleSubmit} >
             <input type="text" 
                    required
                    name="name"

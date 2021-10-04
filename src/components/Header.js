@@ -2,8 +2,9 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
+import TokenUtilities from '../Api/token';
 
-const Header = () => {
+const Header = ({isLoggedIn, setToken}) => {
     const StyledButton = styled(Button)({
         background: '#4169e1',
         borderRadius: 3,
@@ -15,15 +16,31 @@ const Header = () => {
         fontSize: '.9rem'
     });
 
+
+    function handleLogout (event) {
+        event.preventDefault();
+        TokenUtilities.removeToken(); 
+        setToken(null);
+    }
+
       return (
         <>
-        <div className="header-tag">
-            <h1>Fitness Trac.kr</h1>
-            <div>
-                <a className="h21" href="/users/login">Log In</a>
-                <a className="h21" href="/users/register">Register</a>
+            <div className="header-tag">
+                <h1>Fitness Trac.kr</h1>
+                { isLoggedIn ?
+                    <div>
+                        <button  onClick={handleLogout} ><Link to= {"/Logout"}>  LOGOUT </Link></button>
+                    </div>
+                    :
+                    <div>
+                        <Link to= {"/users/login"}> Log In </Link>
+                        <Link to= {"/users/register"}> Register </Link>
+                        {/* <a className="h21" href="/users/login">Log In</a>
+                        <a className="h21" href="/">Register</a> */}
+                    </div> 
+                }
             </div>
-        </div>
+        
         <header>
             <div id="nav-bar">
                 <StyledButton component={Link} to="/">Home</StyledButton>
