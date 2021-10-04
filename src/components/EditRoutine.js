@@ -10,7 +10,7 @@ const EditRoutine = () => {
     const location = useLocation();
     const history = useHistory();
     const {id, name, goal, activities} = location.state;
-    const [editRoutine, setEditRoutine] = useState({name: name, goal: goal, isPublic: null})
+    const [editRoutine, setEditRoutine] = useState({name: name, goal: goal, isPublic: false})
 
     function handleChange(event, postKey) {
         const newState = {...editRoutine};
@@ -27,6 +27,16 @@ const EditRoutine = () => {
             throw error;
         }
         history.push('/my_routines');
+    }
+
+    async function handleSubmit(e) {
+        try {
+            await API.makeRequest(`/routines/${id}`, 'PATCH', editRoutine);
+
+        } catch (error) {
+            throw error;
+        }
+        history.push('/my_routines')
     }
 
     return (
@@ -74,7 +84,7 @@ const EditRoutine = () => {
                     }
                     <Button onClick={(e) => deleteRoutine(e)}>Delete</Button>
                     <Button onClick={(e) => history.push('/my_routines')}>Cancel</Button>
-                    <Button>Submit</Button>
+                    <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
                 </div>
     )
 }
