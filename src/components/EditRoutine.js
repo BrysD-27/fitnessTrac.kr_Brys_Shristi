@@ -16,9 +16,8 @@ const EditRoutine = () => {
         const newState = {...editRoutine};
         {postKey === 'isPublic' ? newState[postKey] = event.target.checked ? true : false : newState[postKey] = event.target.value};
         setEditRoutine(newState);
-        console.log(editRoutine);
     }
-    console.log(id);
+
     async function deleteRoutine(e) {
         event.preventDefault();
         try {
@@ -39,12 +38,23 @@ const EditRoutine = () => {
         history.push('/my_routines')
     }
 
+    async function deleteActivity(e, activityId) {
+        try {
+            await API.makeRequest(`/routine_activities/${activityId}`, 'DELETE')
+        } catch (error) {
+            throw error;
+        }
+
+    }
+
     return (
         <div className='edit-routine'>
+            <h1>Edit Routine</h1>
                 <TextField defaultValue={name}
                            label='Name'
                            type='text'
                            color='primary'
+                           sx={{marginBottom: 3}}
                            onChange={(e) => handleChange(e, 'name')}
                            />
                 <TextField defaultValue={goal}
@@ -64,19 +74,18 @@ const EditRoutine = () => {
                     {
                         activities.map((activity, i) => {
                             return (
-                                <div className='edit-routine-activities'>
+                                
+                                <div className='edit-routine-activities' key={i}>
                                     <h5>Name: {activity.name}</h5>
                                     <p>Description: {activity.description}</p>
-                                    <TextField defaultValue={activity.count}
-                                               label='Count'
-                                               type='number'
-                                    />
-                                    <TextField defaultValue={activity.duration}
-                                               label='Duration'
-                                               type='number'
-                                    />
-                                    <IconButton>
+                                        <h5>Count: {activity.count}</h5>
+                                        <h5>Duration: {activity.duration}</h5>
+                                    <IconButton onClick={(e) => deleteActivity(e, activity.routineActivityId)}>
                                         <Delete></Delete>
+                                    </IconButton>
+                                    <IconButton component={Link} to={{pathname: '/change_activity',
+                                                                    state: {activity}}}>
+                                        <EditIcon />    
                                     </IconButton>
                                 </div>
                             )
