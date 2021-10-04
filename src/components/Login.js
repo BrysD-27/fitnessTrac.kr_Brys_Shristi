@@ -22,6 +22,7 @@ const Login = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
+        localStorage.setItem('username', user.username);
         storeToken();
     }
 
@@ -33,7 +34,7 @@ const Login = () => {
     }
 
 return (
-    <div>
+    <div className='login-form'>
         {/* <Link to="/">Fitness Tracker</Link> */}
         <form onSubmit={handleSubmit} >
             <input type="text" 

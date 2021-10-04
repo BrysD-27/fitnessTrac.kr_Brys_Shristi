@@ -27,9 +27,9 @@ const Header = () => {
         <header>
             <div id="nav-bar">
                 <StyledButton component={Link} to="/">Home</StyledButton>
-                <StyledButton>Routines</StyledButton>
-                <StyledButton>My routines</StyledButton> 
-                <StyledButton>Activities</StyledButton>
+                <StyledButton component={Link} to ="/routines">Routines</StyledButton>
+                <StyledButton component={Link} to="/my_routines">My routines</StyledButton> 
+                <StyledButton component={Link} to='/activities'>Activities</StyledButton>
             </div> 
         </header>
         </>
