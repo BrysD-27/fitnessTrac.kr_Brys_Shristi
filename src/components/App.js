@@ -13,7 +13,8 @@ import {
     MyRoutines,
     CreateRoutine,
     EditRoutine,
-    AddActivity
+    AddActivity,
+    ChangeActivity
 } from './index'
 
 import Logout from './Logout';
@@ -45,6 +46,7 @@ const App = () => {
                     <Route path="/create_routine"><CreateRoutine /></Route>
                     <Route path="/edit_routine"><EditRoutine /></Route>
                     <Route path="/add_activity"><AddActivity /></Route>
+                    <Route path="/change_activity"><ChangeActivity /></Route>
                     <Route path="/Logout"><Logout/></Route>
                     <Route exact path="/"><Home /></Route>
                 </Switch>

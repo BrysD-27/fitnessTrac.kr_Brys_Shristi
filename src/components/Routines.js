@@ -23,18 +23,18 @@ const Routines = () => {
         if(routine.isPublic){
             return (
             <div className='routine' key={`routine-id ${i}`}>
-                <h2>{routine.name}</h2>
-                <h3>{routine.goal}</h3>
-                <p>{routine.creatorName}</p>
+                <h2>Name: {routine.name}</h2>
+                <h3>Goal: {routine.goal}</h3>
+                <p>User: {routine.creatorName}</p>
                 <h5>Activities</h5>
                 {
                     routine.activities.map((act, i) => {
                         return (
                             <div className='act' key={i}>
-                            <h5>{act.name}</h5>
-                            <p>{act.description}</p>
-                            <h5>{act.count}</h5>
-                            <h5>{act.duration}</h5>
+                            <h3>Name: {act.name}</h3>
+                            <p>Description: {act.description}</p>
+                            <h5>Count: {act.count}</h5>
+                            <h5>Duration: {act.duration}</h5>
                         </div>
                         )
                     })
@@ -54,9 +54,9 @@ const Routines = () => {
         <div id='routines-page'>
             <div className='routine-header'>
                 <h1>Routines</h1>
-            </div>
-            <div className='routine-list'>
-                {routineElements}
+                <div className='routine-list'>
+                    {routineElements}
+                </div>
             </div>
         </div>
 

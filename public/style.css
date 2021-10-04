@@ -98,3 +98,62 @@ header {
     row-gap: 10px;
     
 }
+
+#routines-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.routine-header {
+    background-color: #4169e1;
+    color: white;
+    margin-top: 3rem;
+    border-radius: 30px;
+    margin-bottom: 3rem;
+}
+
+.routine-list {
+    background-color: white;
+    color: black;
+    margin-top: 1rem;
+    outline: 2px solid lightgray;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.routine {
+    border-top: 2px solid lightgray;
+}
+
+#my-routines {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.edit-routine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.new-activity {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.change-activity {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}

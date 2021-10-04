@@ -50,7 +50,8 @@ const AddActivity = () => {
     }
 
     return (
-        <div className='new-activty'>
+        <div className='new-activity'>
+            <h1>Add New Activity</h1>
             <Box sx={{ minWidth: 120 }}>
             <FormControl>
                 <InputLabel id="demo-simple-select-label">Activity</InputLabel>
@@ -58,6 +59,7 @@ const AddActivity = () => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={activity}
+                sx={{width: 220, marginBottom: 2}}
                 label="Activity"
                 onChange={(e) => handleChange(e, 'activityId')}
                 >
@@ -74,11 +76,13 @@ const AddActivity = () => {
             <TextField defaultValue={0}
                        label='Count'
                        type='number'
+                       sx={{marginBottom: 2}}
                        onChange={(e) => handleInput(e, 'count')}
                                     />
             <TextField defaultValue={0}
                        label='Duration'
                        type='number'
+                       sx={{marginBottom: 2}}
                        onChange={(e) => handleInput(e, 'duration')}
             />
             <Button onClick={() => history.goBack()}>Cancel</Button>
